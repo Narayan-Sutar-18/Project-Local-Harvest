@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LOGIN</title>
+    <style>
+        /* Universal Selector */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Internal CSS */
+        body {
+            background-image: url('bg_login.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif; 
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        fieldset {
+            background-color: beige;
+            text-align: center;
+            border-radius: 20px;
+            width: 30%;
+            height: auto; 
+            padding: 15px;
+            margin: 20px auto; 
+            border: 2px solid #ccc; 
+            clear: both; 
+        }
+
+        /* ID Selectors */
+        #btn, #btn2, #btn3 {
+            background-color: blue;
+            font-size: large;
+            color: aliceblue;
+            border-radius: 50px;
+            padding: 5px 15px; /* Padding properties */
+        }
+
+        /* Class Selectors */
+        .button-green {
+            background-color: green;
+            border-radius: 20px;
+            font-size: larger;
+            color: white;
+        }
+
+        .login-container {
+            width: 50%;
+            padding: 20px;
+            float: left;
+        }
+
+        .login-container p {
+            font-style: italic;
+            color: white;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .login-container button a {
+            color: white;
+            text-decoration: none; 
+        }
+
+        /* Grouping Selector */
+        button, input[type="button"] {
+            font-size: large;
+            border-radius: 15px;
+            cursor: pointer; /* Pseudo-class effect */
+        }
+
+        /* Contextual Selector/Combinators */
+        fieldset input[type="button"] {
+            background-color: blue;
+            color: aliceblue;
+        }
+
+        /* Pseudo-classes */
+        button:hover, input[type="button"]:hover {
+            background-color: darkblue;
+            color: white;
+        }
+
+        #role{
+            font-size: large;
+        }
+
+        form{
+            padding: 40px;
+        }
+
+        .textbox {
+            padding: 5px; 
+            border-radius: 5px;
+            width: 250px; 
+            margin-bottom: 10px; 
+            font-size:larger;
+        }
+
+        label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: larger;
+        }
+
+        .button-green{
+            width:fit-content;
+            padding: 10px;
+        }
+
+    </style>
+	
+	<script>
+		function f1() 
+		{
+			var role = document.getElementById("role").value;
+			if (role === "") {
+				alert("Please select a role");
+				return false;
+			}
+
+			var userName = document.getElementById("ur").value;
+			if (userName === "") {
+				alert("Please enter username");
+				return false;
+			}
+
+			var password = document.getElementById("pass").value;
+			if (password.trim().length < 6 || password.trim().length > 10) {
+				alert("Password size should be between 6 to 10 characters");
+				return false;
+			} else if (password.search(/[a-z]/) === -1) {
+				alert("Password must contain at least one lowercase character");
+				return false;
+			} else if (password.search(/[A-Z]/) === -1) {
+				alert("Password must contain at least one uppercase character");
+				return false;
+			} else if (password.search(/[0-9]/) === -1) {
+				alert("Password must contain at least one digit");
+				return false;
+			} else if (password.search(/[\@\#\$\%\&\;\:\.\,]/) === -1) {
+				alert("Password must contain at least one special character");
+				return false;
+			}
+
+			var emailid = document.getElementById("email").value;
+			var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!pattern.test(emailid)) {
+				alert("Please enter a correct email id");
+				return false;
+			}
+
+			return true; 
+		}
+	</script>
+</head>
+<body>
+    
+    <div class="login-container">
+        <p><b>"Empowering farmers, connecting communities. From the farm to your doorstep. Together, let's nurture local growth and fresh beginnings."</b></p> 
+        <p><b>"Join us in reshaping the future of local produce."</b></p>    
+    </div>
+    
+    <fieldset>
+        <div>
+            <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px; border: 2px solid black; border-radius: 20px; background-color: aqua;">LOGIN</h3>
+            <form onsubmit="return f1()" action="login.php" method="POST">
+                <img src="login.png" width="150px" alt="Login Icon"><br>
+				<label><b>Role</b></label>
+				<select name="role" id="role" required>
+					<option value="">Select Role</option>
+					<option value="Farmer">Farmer</option>
+					<option value="Customer">Customer</option>
+				</select><br><br>
+                <label><b>Username</b></label>
+                <input type="text" name="ur" placeholder="Enter Username" required class="textbox" id="ur"><br><br>
+                <label><b>Email id</b></label>
+                <input type="email" name="email" id="email" placeholder="Email id" required class="textbox"><br><br>
+                <label><b>Password</b></label>
+                <input type="password" name="pass" id="pass" placeholder="Password" required class="textbox"><br><br>
+                <label>Remember Me</label>
+                <input type="checkbox" name="remember" id="remember"><br><br>
+                <input type="submit" name="Submit" value="Submit" id="btn">
+                <input type="reset" name="reset" value="Reset" id="btn2"><br><br>
+                <label>New User? Create Account</label><br><br>
+                <input type="button" name="Sign Up" value="Signup" id="btn3" onclick="window.location.href='create_account.html'">
+            </form>
+        </div>
+    </fieldset>
+    
+</body>
+</html>

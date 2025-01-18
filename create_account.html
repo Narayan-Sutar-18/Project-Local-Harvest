@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        body {
+            background-image: url(bg_login.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #btn1, #btn2 {
+            background-color: blue;
+            font-size: large;
+            color: aliceblue;
+            border-radius: 15px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #btn1:hover, #btn2:hover {
+            background-color: darkblue;
+        }
+
+        fieldset {
+            background-color: beige; 
+            text-align: center; 
+            border-radius: 20px; 
+            margin: auto; /* Centering the fieldset */
+            width: 90%; /* Set width to 90% */
+            max-width: 600px; /* Optional: set a max-width for larger screens */
+            padding: 40px;
+            border: 2px solid #ccc;
+        }
+        form {
+            padding:10px;
+        }
+
+        .textbox {
+            padding: 5px; 
+            border-radius: 5px;
+            width: 250px; 
+            margin-bottom: 10px; 
+            font-size:larger;
+        }
+
+        label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: larger;
+        }
+    </style>
+
+    <script>
+        function f1() {
+            // Validate role
+            var role = document.getElementById("role").value;
+            if (role === "") {
+                alert("Please select a role");
+                return false;
+            }
+
+            // Validate first name
+            var firstName = document.getElementById("firstname").value;
+            if (firstName === "") {
+                alert("Please enter your first name");
+                return false;
+            }
+
+            // Validate last name
+            var lastName = document.getElementById("lastname").value;
+            if (lastName === "") {
+                alert("Please enter your last name");
+                return false;
+            }
+
+            // Validate email
+            var email = document.getElementById("email").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email");
+                return false;
+            }
+
+            // Validate password
+            var password = document.getElementById("pass").value;
+            if (password.trim().length < 6 || password.trim().length > 10) {
+                alert("Password should be between 6 and 10 characters");
+                return false;
+            } else if (password.search(/[a-z]/) === -1) {
+                alert("Password must contain at least one lowercase letter");
+                return false;
+            } else if (password.search(/[A-Z]/) === -1) {
+                alert("Password must contain at least one uppercase letter");
+                return false;
+            } else if (password.search(/[0-9]/) === -1) {
+                alert("Password must contain at least one digit");
+                return false;
+            } else if (password.search(/[\@\#\$\%\&\;\:\.\,]/) === -1) {
+                alert("Password must contain at least one special character");
+                return false;
+            }
+
+            // Validate gender selection
+            var male = document.getElementById("male").checked;
+            var female = document.getElementById("female").checked;
+            var other = document.getElementById("other").checked;
+            if (!male && !female && !other) {
+                alert("Please select a gender");
+                return false;
+            }
+
+            // Validate terms checkbox
+            var terms = document.getElementById("terms").checked;
+            if (!terms) {
+                alert("You must agree to the terms and conditions");
+                return false;
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+<body>
+
+    <div style="float: left; width: 50%; padding: 20px;">
+        <p style="font-style: italic; color: white; font-size: 40px;"><b>"Empowering farmers, connecting communities. From the farm to your doorstep. Together, let's nurture local growth and fresh beginnings."</b></p> 
+        <p style="font-style: italic; color: white; font-size: 40px;"><b>"Join us in reshaping the future of local produce."</b></p>       
+    </div>
+    
+    <fieldset>
+        <form onsubmit="return f1()" action="create_account.php" method="POST">
+            <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px; border: 2px solid black; border-radius: 20px; background-color: aqua;">CREATE ACCOUNT</h3>
+
+            <label><b>Role</b></label>
+            <select name="role" id="role" required>
+                <option value="">Select Role</option>
+                <option value="Farmer">Farmer</option>
+                <option value="Customer">Customer</option>
+            </select><br><br>
+            
+            <label><b>First Name</b></label>
+            <input type="text" name="fn" id="firstname" placeholder="First Name" required><br><br>
+            
+            <label><b>Last Name</b></label>
+            <input type="text" name="ln" id="lastname" placeholder="Last Name" required><br><br>
+            
+            <label><b>Username</b></label>
+            <input type="text" name="ur" id="ur" placeholder="Enter Username" required><br><br>
+            
+            <label><b>Email id</b></label>
+            <input type="email" name="email" id="email" placeholder="Email id" required><br><br>
+            
+            <label><b>Password</b></label>
+            <input type="password" name="pass" id="pass" placeholder="Password" required><br><br>
+            
+            <label><b>Address</b></label> 
+            <input type="text" name="ad" placeholder="Enter Address" required><br><br>
+            
+            <label><b>Gender</b></label>
+            <input type="radio" name="gender" id="male" value="male" required>Male 
+            <input type="radio" name="gender" id="female" value="female" required>Female 
+            <input type="radio" name="gender" id="other" value="other" required>Other
+            
+            <br><br>
+
+            <label><b>Terms and Conditions</b></label>
+            <input type="checkbox" name="terms" id="terms" value="yes" required>I agree to the terms
+            <br>
+            <a href="Terms and Conditions.pdf" target="_blank">Click Here to read T&C</a><br><br>
+            <input type="submit" name="Submit" value="Submit" id="btn1">
+            <input type="reset" name="reset" value="Reset" id="btn2"><br><br>
+        </form>
+    </fieldset>
+</body>
+</html>

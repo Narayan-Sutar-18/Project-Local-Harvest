@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Feedback</title>
+    <style>
+        a {
+            color: white;
+            }
+           
+
+    </style>
+</head>
+<body>
+        <header>
+            <table border="1px" width="100%" height="60px" class="header-bg" style="background: linear-gradient(to right, #FF5722, #FFEB3B);">
+                <tr style="border: 2px solid black; font-size: large; color: black;">
+                    <th style="color:black">Local Harvest : Fresh and healthy</th>
+                    <th style="color:black ; background-color: aquamarine;">FEEDBACK</th>
+                    <th><a style="color:black" href="homepagenew.php">Home</a></th>
+                    <th><a style="color:black" href="account.php" >My Account</a></th>
+                    <th><a style="color:black" href="login1.html" >Log Out</a></th>  
+                </tr>    
+            </table>
+        <header><br>
+
+        
+        <div style="border: solid black 2px; text-align: center; font-family: Arial, Helvetica, sans-serif; background-color: lightcyan; border-radius: 20px;">
+        <h2>Give your valuable feedback</h2>
+        <form action = "f1.php" method="POST">
+            <label>Name </label>
+            <input type="text" placeholder="Your Name" required autocomplete=""><br><br>
+            <label>Email Id </label>
+            <input type="email" placeholder="Your Email" required><br><br>
+            <label>Select your role</label>
+            <input type="radio" name="role" required>farmer
+            <input type="radio" name="role" required>Customer<br><br>
+            <label>Rate Us :</label><br>
+            <select required>
+                    <option selected>Execellent</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Poor</option>
+                    <option>Very Poor</option>
+            </select><br><br>
+
+            <textarea placeholder="Give us Feedback here" rows="10" cols="20" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>    
+        </div><br>
+
+        <fieldset style="border: solid black 2px; border-radius: 20px;">
+        <legend>Our Recent Reviews</legend>
+        <div>
+          
+            <div style="border: solid black 2px; border-radius: 15px;float: left; width: 50%; background-color: burlywood;">
+                <span><b>_Mr.Sharma</b><span>
+                <p>"The user experience on the website is smooth and intuitive. I found what I needed quickly."</p>
+                <p>"Customer service was responsive and resolved my issue efficiently. Kudos to the team!"</p>
+            </div>
+
+            <div style="border: solid black 2px; border-radius: 15px; float: right; width: 50; background-color: burlywood;">
+                <span><b>_Mr.Gupta</b><span>
+                <p>"I'm thrilled with the freshness of the produce! It feels great knowing I'm supporting local farmers."</p>
+                <p>"The delivery was prompt, and the vegetables were just as pictured on the website. Highly recommend!"</p>
+
+            </div>
+        </div>
+        </fieldset>
+   
+
+        <footer>
+            <table width="100%" height="60px">  
+                <tr style="font-size: large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: blue ; color: white;">
+                <th>Follow us on:</th>
+                <th><a href="https://www.instagram" target="_blank">Instagram</a></th>
+                <th><a href="https://www.facebook.com" target="_blank">Facebook</a></th>
+                <th><a href="https://www.twitter.com" target="_blank">Twitter</a></th>
+                <th><p>&copy; 2024 Local Harvest. All rights reserved.</p></th>
+                </tr>
+            </table>
+        </footer>
+    </body>
+    </html>

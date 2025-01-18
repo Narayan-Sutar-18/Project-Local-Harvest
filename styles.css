@@ -1,0 +1,158 @@
+/* Universal selector */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Element selector */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 25px;
+}
+
+header {
+    background-color: blue;
+    color: blanchedalmond;
+}
+
+footer {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Class selector */
+.main-container {
+    display: flex;
+    margin: 20px;
+}
+
+.categories {
+    width: 25%;
+    background-color: greenyellow;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.products {
+    width: 75%;
+    padding: 10px;
+}
+
+.products table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.products td {
+    border: 2px solid black;
+    text-align: center;
+    vertical-align: top;
+}
+
+.products img {
+    width: 100%;
+    max-width: 210px;
+}
+
+.categories img {
+    width: 100%;
+}
+
+.disc_table {
+    background-color: lightseagreen;
+}
+
+.Prod_table {
+    background-color: lightcyan;
+}
+
+.tc {
+    background-color: blue;
+    color: white;
+    margin-left: 65px;
+}
+
+.tab {
+    display: inline;
+}
+
+/* ID selector */
+#search-button {
+    border-radius: 20px;
+    background-color: green;
+    height: 30px;
+}
+
+/* Grouping selector */
+h2, h3, p {
+    margin-bottom: 10px;
+}
+
+/* Contextual selectors */
+header a {
+    color: white;
+}
+
+ol a {
+    color: black;
+    font-size: large;
+}
+
+/* Background properties */
+.header-bg {
+    background-color: blue;
+}
+
+.footer-bg {
+    background-color: blue;
+    color: white;
+}
+
+/* Border properties */
+.bordered {
+    border: 2px solid black;
+}
+
+/* Padding and Margin properties */
+header, footer {
+    padding: 10px;
+}
+
+/* Position properties */
+.sidebar {
+    position: sticky;
+    top: 0;
+    background-color: greenyellow;
+}
+
+/* Inheritance */
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 20px;
+}
+
+/* Consolidated Pseudo-classes */
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Pseudo-element */
+h2::before {
+    content: "★ ";
+    color: gold;
+}

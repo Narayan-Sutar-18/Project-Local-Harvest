@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            background-image: url(add_bg.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif; 
+            padding-top: 125px;
+            padding-bottom: 50px; 
+        }
+
+        #add {
+            border: 2px solid black;
+            background-color: antiquewhite;
+            padding: 70px;
+            border-radius: 20px;
+            width: 30%; 
+            text-align: center;
+            margin: 0 auto; /* Center the add product section */
+        }
+
+        #btn:hover {
+            background-color: darkblue; 
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* To make header above other content */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000; /* To make footer above other content */
+        }
+
+        #btn {
+            width: 100px;
+            background-color: rgba(0, 0, 255, 0.907);
+            color: white;
+            border-radius: 50px;
+            font-size: larger;
+        }
+
+        label {
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: left;
+        }
+
+
+        #tex {
+            border-radius: 5px;
+            height: 20px;
+        }
+
+        #category {
+            width: fit-content;
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .header-bg {
+            background: linear-gradient(to right, #FF5722, #FFEB3B);
+            padding: 5px 0; 
+            height: 50px; 
+        }
+
+        th {
+            padding: 10px; 
+        }
+
+        h3 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 30px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: aqua;
+        }
+
+        
+    </style>
+
+    <script>
+        function f1() {
+            alert("Product Added Successfully");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <table border="2px" width="100%" class="header-bg">
+            <tr style="border: 2px solid black; font-size: larger; color: black;">
+                <th><a href="about_us1.html" style="color: black; text-decoration: none;">About Us</a></th>
+                <th style="text-align: center; font-size: 24px;">Local Harvest: Fresh and Healthy</th>
+                <th><a href="farmer_homepage.php" style="color: black; text-decoration: none;">Home</a></th>
+                <th><a href="account1.php" style="color: black; text-decoration: none;">My Account</a></th>
+                <th><a href="login1.html" style="color: black; text-decoration: none;">Log Out</a></th>  
+            </tr>  
+        </table>
+    </header>
+
+    <div id="add">
+        <h3>ADD PRODUCT DETAILS</h3><br>
+        <form onsubmit="return f1()" method="POST" action="add_product.php" enctype="multipart/form-data">
+            <label>Product Name</label>
+            <input type="text" id="tex" name="name" required><br><br>
+
+            <label id="category">Category</label>
+            <select id="category" name="category" required>
+                <option value=""></option>
+                <option value="Vegetables"><b>Vegetables</b></option>
+                <option value="Fruits">Fruits</option>
+                <option value="Dairy Products">Dairy Products</option>
+                <option value="Grains">Grains</option>
+            </select><br><br>
+
+            <label>Expiry Date</label>
+            <input type="date" id="tex" name="edate" required><br><br>
+
+            <label>Product Price</label>
+            <input type="text" id="tex" name="price" required><br><br>
+
+            <label>Price Unit</label><br>
+            <input type="radio" id="kg" name="unit" value="Kg" required>Kg<br>
+            <input type="radio" id="litre" name="unit" value="Litre">Litre<br>
+            <input type="radio" id="piece" name="unit" value="Piece">Piece<br><br>
+            
+
+            <label>Storage Conditions</label><br>
+            <input type="checkbox" id="refrigerated" name="storage[]" value="Refrigerated">Refrigerated<br>
+            <input type="checkbox" id="frozen" name="storage[]" value="Frozen"> Frozen<br>
+            <input type="checkbox" id="room_temp" name="storage[]" value="Room Temperature"> Room Temperature<br>
+            <input type="checkbox" id="dry" name="storage[]" value="Dry Storage"> Dry Storage<br><br>
+
+           
+            <label>Upload Photo</label>
+            <input type="file" required name="photo" ><br><br>
+            <input type="submit" id="btn" name="submit">
+        </form>
+    </div>
+
+    <footer style="width: 100%; background-color: blue; text-align: center; padding: 10px 0;">
+        <p style="margin: 0; color: white;">&copy; 2024 Local Harvest. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
